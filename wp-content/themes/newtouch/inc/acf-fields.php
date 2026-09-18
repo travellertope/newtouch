@@ -462,23 +462,20 @@ function newtouch_register_acf_fields() {
 add_action( 'acf/init', 'newtouch_register_acf_fields' );
 
 /**
- * Shared location rules for the homepage field groups: the static front
- * page, or any page using the Homepage template.
+ * Shared location rules for the homepage field groups. Broadened to "any
+ * Page" rather than strictly the front page / Homepage template, since
+ * WordPress installs vary in how reliably page_type/page_template match
+ * (some setups don't register a static front page the way ACF expects).
+ * Showing these on every Page costs nothing on a small site and removes
+ * a whole class of "why can't I see my fields" confusion.
  */
 function newtouch_homepage_location() {
 	return array(
 		array(
 			array(
-				'param'    => 'page_type',
+				'param'    => 'post_type',
 				'operator' => '==',
-				'value'    => 'front_page',
-			),
-		),
-		array(
-			array(
-				'param'    => 'page_template',
-				'operator' => '==',
-				'value'    => 'template-homepage.php',
+				'value'    => 'page',
 			),
 		),
 	);
