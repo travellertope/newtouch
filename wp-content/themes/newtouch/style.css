@@ -1,0 +1,17 @@
+/*
+Theme Name: New Touch
+Theme URI: https://newtouch.co.uk
+Author: New Touch Ltd
+Author URI: https://newtouch.co.uk
+Description: Custom WordPress theme for New Touch — unified boardroom advisory and enterprise IT management across the UK. Every section is editable via Advanced Custom Fields.
+Version: 1.0.0
+Requires at least: 6.0
+Requires PHP: 7.4
+Tested up to: 6.6
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: newtouch
+*/
+
+/* Compiled styles live in assets/css/style.css and are enqueued from functions.php.
+   This file only needs the header above for WordPress to recognise the theme. */
