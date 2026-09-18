@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'NEWTOUCH_VERSION', '1.0.1' );
+define( 'NEWTOUCH_VERSION', '1.0.2' );
 define( 'NEWTOUCH_DIR', get_template_directory() );
 define( 'NEWTOUCH_URI', get_template_directory_uri() );
 
@@ -101,6 +101,42 @@ function newtouch_acf_notice() {
 	echo '</p></div>';
 }
 add_action( 'admin_notices', 'newtouch_acf_notice' );
+
+/**
+ * TEMPORARY diagnostics banner — shows on the page edit screen so we can
+ * see exactly why ACF field groups aren't appearing, instead of guessing.
+ * Safe to delete once the Homepage fields are showing correctly.
+ */
+function newtouch_diagnostics_notice() {
+	if ( ! function_exists( 'get_current_screen' ) || ! current_user_can( 'edit_pages' ) ) {
+		return;
+	}
+
+	$screen = get_current_screen();
+	if ( ! $screen || 'page' !== $screen->post_type || 'post' !== $screen->base ) {
+		return;
+	}
+
+	global $post;
+
+	$acf_active   = function_exists( 'acf_add_local_field_group' );
+	$acf_version  = defined( 'ACF_VERSION' ) ? ACF_VERSION : 'not detected';
+	$acf_pro      = defined( 'ACF_PRO' ) && ACF_PRO;
+	$template     = $post ? get_page_template_slug( $post->ID ) : null;
+	$is_front     = $post ? ( (int) get_option( 'page_on_front' ) === $post->ID ) : false;
+	$group        = ( $acf_active && function_exists( 'acf_get_field_group' ) ) ? acf_get_field_group( 'group_newtouch_hero' ) : null;
+	$groups_count = ( $acf_active && function_exists( 'acf_get_field_groups' ) ) ? count( acf_get_field_groups() ) : 'n/a';
+
+	echo '<div class="notice notice-info"><p><strong>New Touch diagnostics (temporary)</strong></p><ul style="margin-left:20px;list-style:disc;">';
+	echo '<li>ACF active: <strong>' . ( $acf_active ? 'YES' : 'NO' ) . '</strong></li>';
+	echo '<li>ACF version: ' . esc_html( $acf_version ) . ( $acf_pro ? ' (PRO)' : ' (free or undetected)' ) . '</li>';
+	echo '<li>This page\'s saved template: <strong>' . esc_html( $template ? $template : '(Default Template)' ) . '</strong></li>';
+	echo '<li>This page is the site\'s static front page: <strong>' . ( $is_front ? 'YES' : 'NO' ) . '</strong></li>';
+	echo '<li>Total ACF field groups registered (any location): <strong>' . esc_html( $groups_count ) . '</strong></li>';
+	echo '<li>"Homepage — Hero" field group found: <strong>' . ( $group ? 'YES' : 'NO' ) . '</strong></li>';
+	echo '</ul></div>';
+}
+add_action( 'admin_notices', 'newtouch_diagnostics_notice' );
 
 /**
  * Sensible fallbacks so the homepage still reads correctly before an
