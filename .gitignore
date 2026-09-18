@@ -1,0 +1,5 @@
+# Build artifacts (e.g. theme zips exported for WordPress upload)
+*.zip
+
+# OS cruft
+.DS_Store
