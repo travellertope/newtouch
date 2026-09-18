@@ -151,6 +151,40 @@ h1, h2, h3, h4 {
   justify-content: space-between;
   border-bottom: 1px solid var(--nt-line);
   background: var(--nt-paper);
+  color: var(--nt-ink);
+}
+
+/* On the homepage, the header floats over the hero image instead of
+   pushing it down — no separate white nav bar above the photo. */
+.nt-header--overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
+  background: transparent;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  color: var(--nt-paper);
+}
+
+.nt-header--overlay .nt-brand__mark {
+  background: var(--nt-accent);
+}
+
+.nt-header--overlay .nt-nav-cta {
+  border-color: var(--nt-paper);
+}
+
+.nt-header--overlay .nt-nav-cta__switch {
+  background: var(--nt-paper);
+}
+
+.nt-header--overlay .nt-nav-cta__switch::after {
+  background: var(--nt-accent);
+}
+
+.nt-header--overlay .nt-mobile-toggle {
+  border-color: var(--nt-paper);
 }
 
 .nt-brand {
@@ -239,7 +273,7 @@ h1, h2, h3, h4 {
 .nt-hero {
   width: 100%;
   box-sizing: border-box;
-  height: 780px;
+  height: 560px;
   position: relative;
   overflow: hidden;
   background: var(--nt-ink);
@@ -280,7 +314,7 @@ h1, h2, h3, h4 {
 
 .nt-hero__placeholder-tag {
   position: absolute;
-  top: 24px;
+  top: 112px;
   left: var(--nt-gutter);
   font-family: "IBM Plex Mono", monospace;
   font-size: 11px;
@@ -290,34 +324,22 @@ h1, h2, h3, h4 {
   padding: 5px 10px;
 }
 
-.nt-hero__numeral {
-  position: absolute;
-  top: 36px;
-  right: var(--nt-gutter);
-  font-family: "Fraunces", serif;
-  font-weight: 300;
-  font-size: 200px;
-  color: rgba(255, 255, 255, 0.08);
-  line-height: 1;
-  pointer-events: none;
-}
-
 .nt-hero__content {
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
   box-sizing: border-box;
-  padding: 0 var(--nt-gutter) 88px;
+  padding: 0 var(--nt-gutter) 64px;
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 28px;
 }
 
 .nt-hero__heading {
   max-width: 900px;
-  font-size: 76px;
-  line-height: 1.02;
+  font-size: 60px;
+  line-height: 1.04;
   letter-spacing: -0.01em;
   color: var(--nt-paper);
 }
@@ -401,18 +423,6 @@ h1, h2, h3, h4 {
   padding-bottom: 120px;
   display: flex;
   gap: 72px;
-}
-
-.nt-pillars__watermark {
-  position: absolute;
-  top: -30px;
-  left: -6px;
-  font-family: "Fraunces", serif;
-  font-weight: 300;
-  font-size: 240px;
-  color: rgba(10, 10, 10, 0.05);
-  line-height: 1;
-  pointer-events: none;
 }
 
 .nt-pillars__tabs {
@@ -568,18 +578,6 @@ h1, h2, h3, h4 {
 .nt-services {
   padding-top: 120px;
   padding-bottom: 120px;
-}
-
-.nt-services__watermark {
-  position: absolute;
-  top: -20px;
-  right: -6px;
-  font-family: "Fraunces", serif;
-  font-weight: 300;
-  font-size: 240px;
-  color: rgba(10, 10, 10, 0.05);
-  line-height: 1;
-  pointer-events: none;
 }
 
 .nt-services__head {
@@ -822,7 +820,7 @@ h1, h2, h3, h4 {
 
   .nt-hero {
     height: auto;
-    min-height: 620px;
+    min-height: 480px;
   }
 
   .nt-hero__heading {

@@ -37,8 +37,6 @@ if ( ! $pillars ) {
 }
 ?>
 <section class="nt-section nt-pillars" id="pillars" data-pillars>
-	<span class="nt-pillars__watermark" aria-hidden="true">02</span>
-
 	<div class="nt-pillars__tabs" role="tablist" aria-label="<?php esc_attr_e( 'Pillars', 'newtouch' ); ?>">
 		<h2 class="nt-pillars__title"><?php echo esc_html( newtouch_field( 'pillars_heading', 'Three pillars, one operator.' ) ); ?></h2>
 

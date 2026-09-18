@@ -21,8 +21,6 @@ if ( ! $services ) {
 }
 ?>
 <section class="nt-section nt-services" id="services">
-	<span class="nt-services__watermark" aria-hidden="true">03</span>
-
 	<div class="nt-services__head">
 		<h2 class="nt-services__heading"><?php echo esc_html( newtouch_field( 'services_heading', 'Expert business management, on tap.' ) ); ?></h2>
 		<a href="<?php echo esc_url( newtouch_field( 'services_link_url', '#contact' ) ); ?>" class="nt-link-underline">

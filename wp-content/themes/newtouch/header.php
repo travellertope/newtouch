@@ -18,7 +18,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <a class="screen-reader-text" href="#nt-main"><?php esc_html_e( 'Skip to content', 'newtouch' ); ?></a>
 
-<header class="nt-header">
+<?php $newtouch_has_hero = is_front_page() || is_page_template( 'page-templates/template-homepage.php' ); ?>
+
+<header class="nt-header<?php echo $newtouch_has_hero ? ' nt-header--overlay' : ''; ?>">
 	<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="nt-brand">
 		<span class="nt-brand__mark" aria-hidden="true"></span>
 		<span class="nt-brand__name">NEW TOUCH</span>
@@ -27,7 +29,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<nav class="nt-nav" aria-label="<?php esc_attr_e( 'Primary', 'newtouch' ); ?>">
 		<button class="nt-mobile-toggle" data-nav-toggle aria-expanded="false" aria-controls="nt-primary-menu">
 			<span class="screen-reader-text"><?php esc_html_e( 'Menu', 'newtouch' ); ?></span>
-			<svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true"><path d="M0 1H18M0 7H18M0 13H18" stroke="#0A0A0A" stroke-width="1.4"/></svg>
+			<svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true"><path d="M0 1H18M0 7H18M0 13H18" stroke="currentColor" stroke-width="1.4"/></svg>
 		</button>
 
 		<div id="nt-primary-menu" data-nav-menu>

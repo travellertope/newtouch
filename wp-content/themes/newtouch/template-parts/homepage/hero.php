@@ -15,15 +15,13 @@ $has_image = newtouch_hero_bg_has_image( 'hero_background_image' );
 	<div class="nt-hero__tint"></div>
 	<div class="nt-hero__scrim"></div>
 
-	<svg class="nt-hero__crosshair" style="top:28px;left:28px;" viewBox="0 0 22 22" aria-hidden="true"><path d="M11 0V22M0 11H22" stroke="#FFFFFF" stroke-width="1"/></svg>
-	<svg class="nt-hero__crosshair" style="top:28px;right:28px;" viewBox="0 0 22 22" aria-hidden="true"><path d="M11 0V22M0 11H22" stroke="#FFFFFF" stroke-width="1"/></svg>
+	<svg class="nt-hero__crosshair" style="top:112px;left:28px;" viewBox="0 0 22 22" aria-hidden="true"><path d="M11 0V22M0 11H22" stroke="#FFFFFF" stroke-width="1"/></svg>
+	<svg class="nt-hero__crosshair" style="top:112px;right:28px;" viewBox="0 0 22 22" aria-hidden="true"><path d="M11 0V22M0 11H22" stroke="#FFFFFF" stroke-width="1"/></svg>
 	<svg class="nt-hero__crosshair" style="bottom:28px;left:28px;" viewBox="0 0 22 22" aria-hidden="true"><path d="M11 0V22M0 11H22" stroke="#FFFFFF" stroke-width="1"/></svg>
 
 	<?php if ( ! $has_image ) : ?>
 		<span class="nt-hero__placeholder-tag">IMAGE PLACEHOLDER — ACF: hero_background_image</span>
 	<?php endif; ?>
-
-	<span class="nt-hero__numeral" aria-hidden="true">01</span>
 
 	<div class="nt-hero__content">
 		<h1 class="nt-hero__heading"><?php echo esc_html( newtouch_field( 'hero_heading', 'Everything runs better with one hand on it.' ) ); ?></h1>
