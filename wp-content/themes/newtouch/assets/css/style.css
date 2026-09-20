@@ -193,6 +193,21 @@ h1, h2, h3, h4 {
   gap: 8px;
 }
 
+.nt-brand--logo {
+  display: flex;
+  align-items: center;
+}
+
+.nt-brand--logo .custom-logo-link {
+  display: block;
+}
+
+.nt-brand--logo img {
+  max-height: 40px;
+  width: auto;
+  display: block;
+}
+
 .nt-brand__mark {
   width: 9px;
   height: 9px;

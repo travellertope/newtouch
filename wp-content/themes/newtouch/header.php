@@ -21,10 +21,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 <?php $newtouch_has_hero = is_front_page() || is_page_template( 'page-templates/template-homepage.php' ); ?>
 
 <header class="nt-header<?php echo $newtouch_has_hero ? ' nt-header--overlay' : ''; ?>">
-	<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="nt-brand">
-		<span class="nt-brand__mark" aria-hidden="true"></span>
-		<span class="nt-brand__name">NEW TOUCH</span>
-	</a>
+	<?php if ( has_custom_logo() ) : ?>
+		<div class="nt-brand nt-brand--logo"><?php the_custom_logo(); ?></div>
+	<?php else : ?>
+		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="nt-brand">
+			<span class="nt-brand__mark" aria-hidden="true"></span>
+			<span class="nt-brand__name">NEW TOUCH</span>
+		</a>
+	<?php endif; ?>
 
 	<nav class="nt-nav" aria-label="<?php esc_attr_e( 'Primary', 'newtouch' ); ?>">
 		<button class="nt-mobile-toggle" data-nav-toggle aria-expanded="false" aria-controls="nt-primary-menu">
