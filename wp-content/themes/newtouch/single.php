@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-get_header();
+newtouch_get_header();
 ?>
 <div class="nt-page">
 	<?php
@@ -34,4 +34,4 @@ get_header();
 	?>
 </div>
 <?php
-get_footer();
+newtouch_get_footer();

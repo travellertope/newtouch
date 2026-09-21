@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'NEWTOUCH_VERSION', '1.0.4' );
+define( 'NEWTOUCH_VERSION', '1.0.5' );
 define( 'NEWTOUCH_DIR', get_template_directory() );
 define( 'NEWTOUCH_URI', get_template_directory_uri() );
 
@@ -60,6 +60,23 @@ function newtouch_assets() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'newtouch_assets' );
+
+/**
+ * Direct, un-hookable header/footer loaders.
+ *
+ * Core's get_header()/get_footer() fire a 'get_header'/'get_footer' action
+ * before including the theme file — page builders (Elementor Theme Builder
+ * among them) hook that action to substitute their own markup, and on this
+ * install that hook was silently swallowing our header.php entirely, even
+ * after the offending Elementor template was removed. Requiring the file
+ * directly skips that action, so nothing can intercept it.
+ */
+function newtouch_get_header() {
+	require NEWTOUCH_DIR . '/header.php';
+}
+function newtouch_get_footer() {
+	require NEWTOUCH_DIR . '/footer.php';
+}
 
 /**
  * Theme includes.
