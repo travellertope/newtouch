@@ -385,6 +385,14 @@ function newtouch_register_acf_fields() {
 				'instructions' => 'The single spot colour used across buttons, dots and highlights.',
 			),
 			array(
+				'key'   => 'field_nt_opt_logo_light',
+				'label' => 'Logo (light version)',
+				'name'  => 'logo_light',
+				'type'  => 'image',
+				'return_format' => 'array',
+				'instructions' => 'Used only where the header floats transparently over a dark image — the homepage hero, and any inner page whose header also overlaps a hero image. Leave empty to fall back to the main logo set in Appearance → Customize → Site Identity (which is usually a dark logo and can be hard to read there). Everywhere else, the main Site Identity logo is used.',
+			),
+			array(
 				'key'   => 'field_nt_opt_nav_cta_text',
 				'label' => 'Header CTA Text',
 				'name'  => 'nav_cta_text',

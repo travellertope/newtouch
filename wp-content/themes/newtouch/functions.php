@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'NEWTOUCH_VERSION', '1.0.5' );
+define( 'NEWTOUCH_VERSION', '1.0.6' );
 define( 'NEWTOUCH_DIR', get_template_directory() );
 define( 'NEWTOUCH_URI', get_template_directory_uri() );
 

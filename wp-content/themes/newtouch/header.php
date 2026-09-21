@@ -20,8 +20,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <?php $newtouch_has_hero = is_front_page() || is_page_template( 'page-templates/template-homepage.php' ); ?>
 
+<?php $newtouch_logo_light = $newtouch_has_hero ? newtouch_option( 'logo_light' ) : ''; ?>
+
 <header class="nt-header<?php echo $newtouch_has_hero ? ' nt-header--overlay' : ''; ?>">
-	<?php if ( has_custom_logo() ) : ?>
+	<?php if ( $newtouch_logo_light && ! empty( $newtouch_logo_light['ID'] ) ) : ?>
+		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="nt-brand nt-brand--logo custom-logo-link">
+			<?php echo wp_get_attachment_image( $newtouch_logo_light['ID'], 'medium', false, array( 'class' => 'custom-logo' ) ); ?>
+		</a>
+	<?php elseif ( has_custom_logo() ) : ?>
 		<div class="nt-brand nt-brand--logo"><?php the_custom_logo(); ?></div>
 	<?php else : ?>
 		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="nt-brand">
